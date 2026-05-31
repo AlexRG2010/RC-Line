@@ -19,7 +19,10 @@ void loop() {
 
     radio.read(Joystick, sizeof(Joystick)); // Llegeix els valors del joystick rebuts a través del mòdul de ràdio
 
-    
+    // Mapeja els valors del joystick a variables de velocitat i direcció
+      int Velocitat = Joystick[0]; // El primer element de l'array correspon a la velocitat
+      int Direcció = Joystick[1]; // El segon element de l'array correspon a la direcció
+
   #endif
 
 }

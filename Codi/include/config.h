@@ -17,13 +17,16 @@
 //Joystick
     extern int Joystick[2]; // Array global per emmagatzemar els valors del joystick
 
+    extern int Velocitat_Joystick; // Variable global per emmagatzemar la velocitat mapejada del joystick
+    extern int Direcció_Joystick; // Variable global per emmagatzemar la direcció
+
 #ifdef Cotxe
 
 //Servo Direcció
     #define Pin_Direccio 9 // Pin de control del servo de direcció per a l'emissor
 
-    // Creació d'objectes Servo per la direcció
-    Servo Direcció;  // Crea un objecte Servo per al primer motor
+    // Declaració de l'objecte Servo per la direcció
+    extern Servo Direcció;  // Objecte Servo definit en un fitxer .cpp
 
 //Motors
     #define Pin_Vel_1 5 // Pin de control del motor 1 per a l'emissor
