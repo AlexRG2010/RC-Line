@@ -1,8 +1,7 @@
 #include <Arduino.h>
 #include "config.h" //Inclou el fitxer de configuració
 
-extern int Pin_Joystick_X;
-extern int Pin_Joystick_Y;
+int Joystick[2]; // Array global per emmagatzemar els valors del joystick
 
 void mapJoystick(){
     int JoystickX = analogRead(Pin_Joystick_X); // Llegeix el valor del joystick en l'eix X
@@ -12,12 +11,12 @@ void mapJoystick(){
     int Velocitat_Joystick = map(JoystickX, 0, 1023, -100, 100);
     int Direcció_Joystick = map(JoystickY, 0, 1023, -100, 100);
     
-    if (Velocitat_Joystick < -50 and Velocitat_Joystick > 50)
+    if (Velocitat_Joystick > -50 && Velocitat_Joystick < 50)
     {
         Velocitat_Joystick = 0;
     }
     
-    if (Direcció_Joystick < -50 and Direcció_Joystick > 50)
+    if (Direcció_Joystick > -50 && Direcció_Joystick < 50)
     {
         Direcció_Joystick = 0;
     }

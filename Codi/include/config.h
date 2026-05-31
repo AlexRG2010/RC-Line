@@ -14,6 +14,9 @@
 
     void IniciRadio(); // Declaració de la funció per iniciar el mòdul de ràdio
 
+//Joystick
+    extern int Joystick[2]; // Array global per emmagatzemar els valors del joystick
+
 #ifdef Cotxe
 
 //Servo Direcció
@@ -37,8 +40,6 @@
 //Joystick
     #define Pin_Joystick_X A0 // Pin de control del joystick per a l'eix X
     #define Pin_Joystick_Y A1 // Pin de control del joystick per a l'eix Y
-
-    int Joystick[2]; // Array per emmagatzemar els valors del joystick (X i Y)
 
     void mapJoystick(); // Declaració de la funció per mapear els valors del joystick
 #endif

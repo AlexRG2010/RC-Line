@@ -15,4 +15,11 @@ void loop() {
 
   #endif
 
+  #ifdef Cotxe
+
+    radio.read(Joystick, sizeof(Joystick)); // Llegeix els valors del joystick rebuts a través del mòdul de ràdio
+
+    
+  #endif
+
 }
