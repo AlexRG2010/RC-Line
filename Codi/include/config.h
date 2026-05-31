@@ -11,9 +11,13 @@
     #define CSN_PIN 10 // Pin CSN del mòdul de ràdio
     extern RF24 radio;
     extern byte direccion[5];
+
     void IniciRadio();
 
-#ifdef Mando
+//Joystick
+    int Joystick[2]; // Array per emmagatzemar els valors del joystick (X i Y)
+
+#ifdef Cotxe
 
 //Servo Direcció
     #define Pin_Direccio 9 // Pin de control del servo de direcció per a l'emissor
@@ -22,16 +26,22 @@
     Servo Direcció;  // Crea un objecte Servo per al primer motor
 
 //Motors
+    #define Pin_Vel_1 5 // Pin de control del motor 1 per a l'emissor
+    #define Pin_Vel_2 6 // Pin de control del motor 2 per a l'emissor
+
+    #define Pin_Sentit_1 7 // Pin de control de la direcció del motor 1 per a l'emissor
+    #define Pin_Sentit_2 8 // Pin de control de la direcció del motor 2 per a l'emissor
 
 
 #endif
 
-#ifdef Cotxe
+#ifdef Mando
 
 //Joystick
     #define Pin_Joystick_X A0 // Pin de control del joystick per a l'eix X
     #define Pin_Joystick_Y A1 // Pin de control del joystick per a l'eix Y
 
+void mapJoystick();
 #endif
 
 #endif
