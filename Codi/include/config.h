@@ -7,7 +7,7 @@
     #include <RF24.h> //Inclou la llibreria per controlar el mòdul de ràdio nRF24L01
 
 //Radio
-    #define CE_PIN 7 // Pin CE del mòdul de ràdio
+    #define CE_PIN 9 // Pin CE del mòdul de ràdio
     #define CSN_PIN 10 // Pin CSN del mòdul de ràdio
     extern RF24 radio;
     extern byte direccion[5];
@@ -18,22 +18,25 @@
     extern int Joystick[2]; // Array global per emmagatzemar els valors del joystick
 
     extern int Velocitat_Joystick; // Variable global per emmagatzemar la velocitat mapejada del joystick
-    extern int Direcció_Joystick; // Variable global per emmagatzemar la direcció
+    extern int Direccio_Joystick; // Variable global per emmagatzemar la direcció
 
 #ifdef Cotxe
 
 //Servo Direcció
-    #define Pin_Direccio 9 // Pin de control del servo de direcció per a l'emissor
+    #define Pin_Direccio 3 // Pin de control del servo de direcció (PWM)
 
     // Declaració de l'objecte Servo per la direcció
-    extern Servo Direcció;  // Objecte Servo definit en un fitxer .cpp
+    extern Servo Direccio;  // Objecte Servo definit en un fitxer .cpp
 
 //Motors
-    #define Pin_Vel_1 5 // Pin de control del motor 1 per a l'emissor
-    #define Pin_Vel_2 6 // Pin de control del motor 2 per a l'emissor
+    #define Pin_Vel_1 5 // Pin PWM de control de velocitat motor 1 (ENA)
+    #define Pin_Vel_2 6 // Pin PWM de control de velocitat motor 2 (ENB)
 
-    #define Pin_Sentit_1 7 // Pin de control de la direcció del motor 1 per a l'emissor
-    #define Pin_Sentit_2 8 // Pin de control de la direcció del motor 2 per a l'emissor
+    #define Pin_Sentit_1 7 // Pin de control de direcció motor 1 (IN1)
+    #define Pin_Sentit_2 8 // Pin de control de direcció motor 2 (IN2)
+    
+    void Moures(int Velocitat, int Direccio); // Declaració de la funció per controlar motors
+    void IniciMotors(); // Declaració de la funció per iniciar motors
 
 
 #endif

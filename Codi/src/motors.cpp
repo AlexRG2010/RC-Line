@@ -2,22 +2,36 @@
 #include "config.h" //Inclou el fitxer de configuració
 
 #ifdef Cotxe
-Servo Direcció; // Defineix l'objecte Servo un sol cop per a l'emissor
+Servo Direccio; // Objecte Servo per controlar la direcció
+
+void IniciMotors() {
+    // Inicialitza els pins dels motors com sortides digitals
+    pinMode(Pin_Vel_1, OUTPUT);
+    pinMode(Pin_Vel_2, OUTPUT);
+    pinMode(Pin_Sentit_1, OUTPUT);
+    pinMode(Pin_Sentit_2, OUTPUT);
+    
+    // Inicialitza el servo de direcció
+    Direccio.attach(Pin_Direccio);
+    Direccio.write(90); // Posició central (90 graus)
+}
 
 void Moures(int Velocitat, int Direccio){
-    // Controla els motors en funció de la velocitat i direcció rebudes
+    // Mapeja la velocitat de -100 a 100 a 0-255 per a analogWrite
+    int Vel_Mapejada = map(abs(Velocitat), 0, 100, 0, 255);
+    
     if (Velocitat > 0) {
         // Mou cap endavant
         digitalWrite(Pin_Sentit_1, HIGH);
         digitalWrite(Pin_Sentit_2, HIGH);
-        analogWrite(Pin_Vel_1, Velocitat);
-        analogWrite(Pin_Vel_2, Velocitat);
+        analogWrite(Pin_Vel_1, Vel_Mapejada);
+        analogWrite(Pin_Vel_2, Vel_Mapejada);
     } else if (Velocitat < 0) {
         // Mou cap enrere
         digitalWrite(Pin_Sentit_1, LOW);
         digitalWrite(Pin_Sentit_2, LOW);
-        analogWrite(Pin_Vel_1, -Velocitat);
-        analogWrite(Pin_Vel_2, -Velocitat);
+        analogWrite(Pin_Vel_1, Vel_Mapejada);
+        analogWrite(Pin_Vel_2, Vel_Mapejada);
     } else {
         // Atura els motors
         analogWrite(Pin_Vel_1, 0);
@@ -25,7 +39,10 @@ void Moures(int Velocitat, int Direccio){
     }
     
     // Controla la direcció del servo de direcció
-    int Posicio_Direccio = map(Direccio, -100, 100, 0, 180); // Mapeja la direcció a un rang de 0 a 180 graus
-    Direcció.write(Posicio_Direccio); // Mou el servo a la posició corresponent
+    // Mapeja de -100 a 100 a 0 a 180 graus
+    int Posicio_Direccio = map(Direccio, -100, 100, 0, 180);
+    // Limita la posició entre 0 i 180
+    Posicio_Direccio = constrain(Posicio_Direccio, 0, 180);
+    Direccio.write(Posicio_Direccio);
 }
 #endif
