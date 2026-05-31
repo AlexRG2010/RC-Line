@@ -6,5 +6,5 @@ void setup() {
 }
 
 void loop() {
-  
+  mapJoystick(); // Mapeja els valors del joystick i els emmagatzema a l'array Joystick
 }
