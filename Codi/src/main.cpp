@@ -6,5 +6,13 @@ void setup() {
 }
 
 void loop() {
-  mapJoystick(); // Mapeja els valors del joystick i els emmagatzema a l'array Joystick
+  
+  #ifdef Mando
+    mapJoystick(); // Mapeja els valors del joystick i els emmagatzema a l'array Joystick
+
+    // Envia els valors del joystick a través del mòdul de ràdio
+    radio.write(Joystick, sizeof(Joystick));
+
+  #endif
+
 }
