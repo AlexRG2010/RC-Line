@@ -17,10 +17,6 @@
 //Joystick
     extern int Joystick[2]; // Array global per emmagatzemar els valors del joystick
 
-    extern int Velocitat_Joystick; // Variable global per emmagatzemar la velocitat mapejada del joystick
-    extern int Direccio_Joystick; // Variable global per emmagatzemar la direcció mapejada del joystick
-    extern int Joystick[2]; // Array global per emmagatzemar els valors del joystick
-
 #ifdef Cotxe
 
 //Servo Direcció
