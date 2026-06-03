@@ -36,7 +36,7 @@
     #define Pin_Sentit_1 7 // Pin de control de direcció motor 1 (IN1)
     #define Pin_Sentit_2 8 // Pin de control de direcció motor 2 (IN2)
     
-    void Moures(int Velocitat, int Direccio); // Declaració de la funció per controlar motors
+    void Moures(int Velocitat, int Direccio_Valor); // Declaració de la funció per controlar motors
     void IniciMotors(); // Declaració de la funció per iniciar motors
 
 

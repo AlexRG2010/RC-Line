@@ -16,7 +16,7 @@ void IniciMotors() {
     Direccio.write(90); // Posició central (90 graus)
 }
 
-void Moures(int Velocitat, int Direccio){
+void Moures(int Velocitat, int Direccio_Valor){
     // Mapeja la velocitat de -100 a 100 a 0-255 per a analogWrite
     int Vel_Mapejada = map(abs(Velocitat), 0, 100, 0, 255);
     
@@ -40,7 +40,7 @@ void Moures(int Velocitat, int Direccio){
     
     // Controla la direcció del servo de direcció
     // Mapeja de -100 a 100 a 0 a 180 graus
-    int Posicio_Direccio = map(Direccio, -100, 100, 0, 180);
+    int Posicio_Direccio = map(Direccio_Valor, -100, 100, 0, 180);
     // Limita la posició entre 0 i 180
     Posicio_Direccio = constrain(Posicio_Direccio, 0, 180);
     Direccio.write(Posicio_Direccio);
