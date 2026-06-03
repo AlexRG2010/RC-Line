@@ -33,8 +33,11 @@
     #define Pin_Vel_1 5 // Pin PWM de control de velocitat motor 1 (ENA)
     #define Pin_Vel_2 6 // Pin PWM de control de velocitat motor 2 (ENB)
 
-    #define Pin_Sentit_1 7 // Pin de control de direcció motor 1 (IN1)
-    #define Pin_Sentit_2 8 // Pin de control de direcció motor 2 (IN2)
+    #define Pin_Sentit_1_A 7 // Pin de control de direcció motor 1 (IN1)
+    #define Pin_Sentit_1_B 8 // Pin de control de direcció motor 2 (IN2)
+
+    #define Pin_Sentit_2_A 4 // Pin de control de direcció motor 1 (IN3)
+    #define Pin_Sentit_2_B 2 // Pin de control de direcció motor 2 (IN4)
     
     void Moures(int Velocitat, int Direccio_Valor); // Declaració de la funció per controlar motors
     void IniciMotors(); // Declaració de la funció per iniciar motors
