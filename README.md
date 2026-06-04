@@ -216,8 +216,3 @@ Aquest projecte es distribueix amb fins educatius.
 - [Arduino Documentation](http://docs.arduino.cc)
 - [RF24 Library GitHub](https://github.com/nRF24/RF24)
 - [Servo Library](https://www.arduino.cc/reference/en/libraries/servo/)
-
----
-
-**Últim update**: Desembre 2025
-**Estat**: ✅ Funcional
